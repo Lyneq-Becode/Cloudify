@@ -1,0 +1,34 @@
+
+button {
+  background-color: transparent;
+  color: var(--text);
+  border: 2px solid var(--primary);
+  border-radius: 25px;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+
+  &:hover {
+    opacity: 0.8;
+  }
+}
+
+
+input[type="text"] {
+  width: 125px;
+  padding: 0.5rem;
+  border: none;
+  border-bottom: 1px solid var(--primary);
+  color: var(--text);
+
+  background-color: transparent;
+
+  &::placeholder {
+    color: var(--text);
+  }
+
+  &:focus {
+    outline: none;
+    border-color: var(--primary);
+  }
+
+}

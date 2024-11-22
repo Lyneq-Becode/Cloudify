@@ -1,0 +1,7 @@
+# IDE
+.idea/
+
+
+# Sass
+*.css.map
+*.css
