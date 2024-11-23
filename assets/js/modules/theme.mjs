@@ -29,7 +29,6 @@ const toggleDarkTheme = () => {
     themeToggleButton.addEventListener('click', () => {
         const currentTheme = htmlElement.getAttribute('data-theme');
         const newTheme = currentTheme === 'light' ? 'dark' : 'light';
-        console.log(currentTheme, newTheme)
         htmlElement.setAttribute('data-theme', newTheme);
 
         const themeIcon = document.createElement('i');
