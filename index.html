@@ -39,15 +39,26 @@
         </header>
 
         <main>
-            <section class="current-weather">
-                <h2>Current Weather</h2>
-                <div class="current-weather-content">
-                    <p id="current-temp">Temperature: --°C</p>
-                    <p id="current-description">Description: --</p>
-                    <p id="current-humidity">Humidity: --%</p>
-                    <p id="current-wind">Wind: -- km/h</p>
-                </div>
-            </section>
+            <div class="wrapper">
+                <section class="current-weather">
+                    <h2>Current Weather</h2>
+                    <div class="current-weather-content">
+                        <p id="current-temp">Temperature: --°C</p>
+                        <p id="current-description">Description: --</p>
+                        <p id="current-humidity">Humidity: --%</p>
+                        <p id="current-wind">Wind: -- km/h</p>
+                    </div>
+                </section>
+                <section class="city_additional_info current-weather">
+                    <h2>Additional Information</h2>
+                    <div class="city_additional_info_content">
+                        <p id="current-pressure">📊 Pressure: -- hPa</p>
+                        <p id="current-visibility">👀 Visibility: -- Km</p>
+                        <p id="current-sunrise">🌅 Sunrise: --</p>
+                        <p id="current-sunset">🌇 Sunset: --</p>
+                    </div>
+                </section>
+            </div>
 
             <section class="forecast">
                 <h2>Forecast</h2>
@@ -57,7 +68,7 @@
         </main>
 
         <footer>
-            <p>Data provided by <u>OpenWeatherMap</u></p>
+            <h4>Data provided by <a href="https://openweathermap.org/">OpenWeatherMap</a></h4>
         </footer>
     </div>
 </section>

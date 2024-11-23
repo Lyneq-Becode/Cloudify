@@ -1,9 +1,10 @@
-import {toggleDarkTheme} from "./modules/theme.mjs";
+import {initFirstTheme, toggleDarkTheme} from "./modules/theme.mjs";
 import {getCitiesList, getCityInformation} from "./modules/weather.mjs";
 import {kelvinToCelsius} from "./modules/utils.mjs";
 import FakeData from "./modules/fakeData.mjs";
 
 // toggle dark Theme
+initFirstTheme()
 toggleDarkTheme();
 
 // response to the form submission
@@ -38,8 +39,6 @@ submitButton.addEventListener('click', async (event) => {
     const cityName = document.getElementById('city_search').value;
     const weatherData = await getCityInformation(cityName);
 
-    console.log(weatherData)
-
     document.getElementById("city-name").textContent = weatherData.city.name;
     document.getElementById("city-lat").textContent = weatherData.city.coord.lat;
     document.getElementById("city-lon").textContent = weatherData.city.coord.lon;
@@ -51,12 +50,16 @@ submitButton.addEventListener('click', async (event) => {
     document.getElementById("current-humidity").textContent = `Humidity: ${currentWeather.main.humidity}%`;
     document.getElementById("current-wind").textContent = `Wind: ${currentWeather.wind.speed} km/h`;
 
+    document.getElementById("current-pressure").textContent = `📊 Pressure: ${currentWeather.main.pressure} hPa`;
+    document.getElementById("current-visibility").textContent = `👀 Visibility: ${currentWeather.visibility} Km`;
+    document.getElementById("current-sunrise").textContent = `🌅 Sunrise: ${new Date(weatherData.city.sunrise * 1000).toLocaleTimeString()}`;
+    document.getElementById("current-sunset").textContent = `🌇 Sunset: ${new Date(weatherData.city.sunset * 1000).toLocaleTimeString()}`;
+
     // Populate Forecast
     weatherData.list.forEach((forecast, index) => {
         if (index % 8 === 0) {
             const card = document.createElement("div");
             card.classList.add("forecast-card");
-            console.log(forecast);
             card.innerHTML = `
                 <p class="date">${forecast.dt_txt.split(" ")[0]}</p>
                 <p>🌡️ ${kelvinToCelsius(forecast.main.temp)}°C</p>
