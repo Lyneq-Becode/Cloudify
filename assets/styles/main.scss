@@ -24,11 +24,9 @@ body {
   align-items: center;
   flex-wrap: nowrap;
 
-
-  &_title {
-    color: var(--text);
-
-    font-size: 0.8rem;
+  &_title,
+  #search_button {
+    font-size: 1.2rem;
   }
 }
 
@@ -115,7 +113,7 @@ body {
 
 
 .weather-app {
-  max-width: 800px;
+  max-width: 70vw;
   margin: 0 auto;
   padding: 20px;
   background: var(--background);
@@ -162,9 +160,9 @@ header p {
 
     max-width: 75%;
 
-    @include respond-to(sm) {
-      justify-content: flex-start;
-    }
+    //@include respond-to(sm) {
+    //  justify-content: flex-start;
+    //}
 
     .date {
       font-weight: bold;
@@ -206,13 +204,31 @@ header p {
 
 }
 
-
 .wrapper {
   display: flex;
-  justify-content: space-around;
+  justify-content: space-evenly;
   flex-wrap: wrap;
   flex-direction: row;
   align-items: center;
+}
+
+#city_picture {
+
+  display: flex;
+  gap: 1rem;
+  flex-wrap: nowrap;
+  flex-direction: row;
+  justify-content: center;
+  margin: 2rem auto;
+}
+
+.city-picture {
+  width: 15vw;
+  height: 15vw;
+  border-radius: 12px;
+  image-rendering: auto; /* Default: smooth interpolation */
+  object-fit: cover;
+
 }
 
 footer {

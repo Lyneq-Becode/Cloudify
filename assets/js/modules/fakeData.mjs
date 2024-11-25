@@ -1512,7 +1512,6 @@ const createFakeData = () => {
     };
     return displayWeatherData(weatherData)
 
-
 }
 
 export default createFakeData;

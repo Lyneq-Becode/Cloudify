@@ -1,4 +1,4 @@
-# MakeWeatherGreatAgain
+# Cloudify 🌦️
 
 This is a simple weather app that uses the OpenWeatherMap API to get the current weather for a given city.
 additionally, it uses the Unsplash API to get a picture of the city you entered.
@@ -24,6 +24,9 @@ export default {
         "appID": "MyUnsplashAppID",
         "AccessKey": "MyUnsplashAccessKey",
         "secretKey": "MyUnsplashSecretKey"
+    },
+    "geoNames": {
+        "username": "MyGeoNamesUsername"
     }
 }
 ```

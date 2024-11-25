@@ -3,28 +3,36 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Make Weather Great Again</title>
+    <title>Cloudify</title>
+    <!--    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.min.js"-->
+    <!--            type="module"-->
+    <!--            integrity="sha512-L0Shl7nXXzIlBSUUPpxrokqq4ojqgZFQczTYlGjzONGTDAcLremjwaWv5A+EDLnxhQzY5xUZPWLOLqYRkY0Cbw=="-->
+    <!--            crossorigin="anonymous"-->
+    <!--            referrerpolicy="no-referrer"-->
+    <!--    ></script>-->
     <link rel="stylesheet" href="assets/styles/main.css">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <link href="assets/images/favicon.png" rel="icon">
 
 </head>
 <body>
 
 <nav class="navbar">
-    <h1 class="navbar_title"> Make Weather Great Again </h1>
+    <h1 class="navbar_title"> Cloudify 🌦️ </h1>
     <button id="theme-toggle">
         <i class="fas fa-moon"></i>
     </button>
 </nav>
 
+<canvas id="acquisitions"></canvas>
+
 <main class="search">
     <section class="search_content">
         <form>
             <label for="city_search">Enter a city name:</label>
-            <input type="text" id="city_search" name="city" placeholder="City Name" list="cities_list"
+            <input type="text" id="city_search" name="city" placeholder="Enter an address" list="cities_list"
                    autocomplete="off" required>
             <datalist id="cities_list">
-
             </datalist>
             <button type="submit" id="search_button">Search</button>
         </form>
@@ -38,15 +46,19 @@
             <p id="city-coords">(Lat: <span id="city-lat">N/A</span>, Lon: <span id="city-lon">N/A</span>)</p>
         </header>
 
+        <div id="city_picture">
+
+        </div>
+
         <main>
             <div class="wrapper">
                 <section class="current-weather">
                     <h2>Current Weather</h2>
                     <div class="current-weather-content">
-                        <p id="current-temp">Temperature: --°C</p>
-                        <p id="current-description">Description: --</p>
-                        <p id="current-humidity">Humidity: --%</p>
-                        <p id="current-wind">Wind: -- km/h</p>
+                        <p id="current-temp">🌡️ Temperature: --°C</p>
+                        <p id="current-description">📖 Description: --</p>
+                        <p id="current-humidity">💧 Humidity: --%</p>
+                        <p id="current-wind">💨 Wind: -- km/h</p>
                     </div>
                 </section>
                 <section class="city_additional_info current-weather">
@@ -59,13 +71,13 @@
                     </div>
                 </section>
             </div>
-
             <section class="forecast">
                 <h2>Forecast</h2>
                 <div id="forecast-container">
                 </div>
             </section>
         </main>
+
 
         <footer>
             <h4>Data provided by <a href="https://openweathermap.org/">OpenWeatherMap</a></h4>

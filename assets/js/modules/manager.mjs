@@ -1,5 +1,6 @@
 import {getCityInformation} from "./weather.mjs";
 import {kelvinToCelsius} from "./utils.mjs";
+import {getCityPictures} from "./cityPicture.mjs";
 
 const displayWeatherData = async (weatherData) => {
 
@@ -13,10 +14,10 @@ const displayWeatherData = async (weatherData) => {
 
     // Populate Current Weather
     const currentWeather = weatherData.list[0];
-    document.getElementById("current-temp").textContent = `Temperature: ${Math.round(currentWeather.main.temp - 273.15)}°C`;
-    document.getElementById("current-description").textContent = `Description: ${currentWeather.weather[0].description}`;
-    document.getElementById("current-humidity").textContent = `Humidity: ${currentWeather.main.humidity}%`;
-    document.getElementById("current-wind").textContent = `Wind: ${currentWeather.wind.speed} km/h`;
+    document.getElementById("current-temp").textContent = `🌡️ Temperature: ${Math.round(currentWeather.main.temp - 273.15)}°C`;
+    document.getElementById("current-description").textContent = `📖 Description: ${currentWeather.weather[0].description}`;
+    document.getElementById("current-humidity").textContent = `💧 Humidity: ${currentWeather.main.humidity}%`;
+    document.getElementById("current-wind").textContent = `💨 Wind: ${currentWeather.wind.speed} km/h`;
 
     document.getElementById("current-pressure").textContent = `📊 Pressure: ${currentWeather.main.pressure} hPa`;
     document.getElementById("current-visibility").textContent = `👀 Visibility: ${currentWeather.visibility} Km`;
@@ -38,5 +39,21 @@ const displayWeatherData = async (weatherData) => {
     });
 }
 
+const displayCityPictures = async (cityName) => {
 
-export {displayWeatherData};
+    const picturesContainer = document.getElementById("city_picture");
+    picturesContainer.innerHTML = '';
+
+    const pictures = await getCityPictures(cityName);
+
+    // console.log(pictures);
+    pictures.results.forEach(picture => {
+        const img = document.createElement("img");
+        img.src = picture.urls.small;
+        img.alt = picture.alt_description;
+        img.classList.add("city-picture");
+        picturesContainer.appendChild(img);
+    });
+}
+
+export {displayWeatherData, displayCityPictures};
