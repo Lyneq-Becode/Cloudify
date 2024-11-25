@@ -1,4 +1,7 @@
-const superSecureApiKey = "I_AM_SO_SECURE_YOU_WILL_NEVER_GET_ME";
+import config from '../config.js';
+
+const superSecureApiKey = config.openWeather.apiKey;
+
 
 const getCitiesList = async (city) => {
     try {

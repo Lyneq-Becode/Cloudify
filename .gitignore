@@ -5,3 +5,4 @@
 # Sass
 *.css.map
 *.css
+/assets/js/config.js
