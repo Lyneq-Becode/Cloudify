@@ -2,7 +2,6 @@ import {initFirstTheme, toggleDarkTheme} from "./modules/theme.mjs";
 import {getCityInformation} from "./modules/weather.mjs";
 import {findCityNameByName} from "./modules/cityName.mjs";
 import {displayWeatherData, displayCityPictures} from "./modules/manager.mjs";
-import testGraph from "./modules/chart.mjs";
 import FakeData from "./modules/fakeData.mjs"; // This function must be used only for testing purposes
 
 // toggle dark Theme
