@@ -4,6 +4,7 @@ import {findCityNameByName} from "./modules/cityName.mjs";
 import {displayWeatherData, displayCityPictures} from "./modules/manager.mjs";
 import FakeData from "./modules/fakeData.mjs"; // This function must be used only for testing purposes
 
+
 // toggle dark Theme
 initFirstTheme()
 toggleDarkTheme();
@@ -43,6 +44,5 @@ submitButton.addEventListener('click', async (event) => {
 })
 
 
-testGraph()
-
-FakeData().then(r => console.log(r));
+await FakeData();
+// testGraph();

@@ -1,4 +1,4 @@
-import {getCityInformation} from "./weather.mjs";
+import { temperatureGraph } from "./graph.mjs"
 import {kelvinToCelsius} from "./utils.mjs";
 import {getCityPictures} from "./cityPicture.mjs";
 
@@ -20,7 +20,7 @@ const displayWeatherData = async (weatherData) => {
     document.getElementById("current-wind").textContent = `💨 Wind: ${currentWeather.wind.speed} km/h`;
 
     document.getElementById("current-pressure").textContent = `📊 Pressure: ${currentWeather.main.pressure} hPa`;
-    document.getElementById("current-visibility").textContent = `👀 Visibility: ${currentWeather.visibility} Km`;
+    document.getElementById("current-visibility").textContent = `👀 Visibility: ${(currentWeather.visibility / 1000).toFixed(2)} Km`;
     document.getElementById("current-sunrise").textContent = `🌅 Sunrise: ${new Date(weatherData.city.sunrise * 1000).toLocaleTimeString()}`;
     document.getElementById("current-sunset").textContent = `🌇 Sunset: ${new Date(weatherData.city.sunset * 1000).toLocaleTimeString()}`;
 
@@ -37,6 +37,9 @@ const displayWeatherData = async (weatherData) => {
             forecastContainer.appendChild(card);
         }
     });
+
+    // display all graph
+    temperatureGraph(weatherData.list);
 }
 
 const displayCityPictures = async (cityName) => {
