@@ -25,8 +25,9 @@ formInput.addEventListener('input', async (event) => {
     if (citiesStartWith === false) return;
     dataListElement.innerHTML = '';
     citiesStartWith.geonames.forEach(city => {
+        console.log(city)
         const option = document.createElement('option');
-        option.value = city.name;
+        option.value = city.name + ', ' + city.countryName;
         dataListElement.appendChild(option);
     });
 
