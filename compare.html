@@ -7,10 +7,7 @@
     <link rel="stylesheet" href="assets/styles/main.css">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
     <link href="assets/images/favicon.png" rel="icon">
-
-<!--    <script defer src="assets/js/modules/theme.js" type="module"></script>-->
-    <script defer src="assets/js/main.js" type="module"></script>
-    <script defer src="https://cdn.jsdelivr.net/npm/chart.js@4.4.6/dist/chart.umd.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.6/dist/chart.umd.js"></script>
 </head>
 <body>
 
@@ -37,17 +34,15 @@
     </section>
 </main>
 
-<section id="weather">
-    <div class="weather-app">
+<section id="weather_mirror">
+    <div class="weather-app_mirror app-left">
         <header>
+            <select id="city_select-left">
+            </select>
             <h1>Weather in <span id="city-name">City</span></h1>
             <p id="city-coords">(Lat: <span id="city-lat">N/A</span>, Lon: <span id="city-lon">N/A</span>)</p>
         </header>
-
-        <div id="city_picture">
-
-        </div>
-
+        <div id="city_picture" class="mirrored"></div>
         <main>
             <div class="wrapper">
                 <section class="current-weather">
@@ -71,12 +66,51 @@
             </div>
             <section class="forecast">
                 <h2>Forecast</h2>
-                <div id="forecast-container">
+                <div id="forecast-container" class="forecast-container_mirrored">
                 </div>
             </section>
         </main>
         <canvas id="canvas" width="400" height="200"></canvas>
-
+        <footer>
+            <h4>Data provided by <a href="https://openweathermap.org/">OpenWeatherMap</a></h4>
+        </footer>
+    </div>
+    <div class="weather-app_mirror app-right">
+        <header>
+            <select id="city_select-right">
+            </select>
+            <h1>Weather in <span id="city-name_mirror">City</span></h1>
+            <p id="city-coords_mirror">(Lat: <span id="city-lat_mirror">N/A</span>, Lon: <span id="city-lon_mirror">N/A</span>)</p>
+        </header>
+        <div id="city_picture_mirror" class="mirrored"></div>
+        <main>
+            <div class="wrapper">
+                <section class="current-weather">
+                    <h2>Current Weather</h2>
+                    <div class="current-weather-content">
+                        <p id="current-temp_mirror">🌡️ Temperature: --°C</p>
+                        <p id="current-description_mirror">📖 Description: --</p>
+                        <p id="current-humidity_mirror">💧 Humidity: --%</p>
+                        <p id="current-wind_mirror">💨 Wind: -- km/h</p>
+                    </div>
+                </section>
+                <section class="city_additional_info current-weather">
+                    <h2>Additional Information</h2>
+                    <div class="city_additional_info_content">
+                        <p id="current-pressure_mirror">📊 Pressure: -- hPa</p>
+                        <p id="current-visibility_mirror">👀 Visibility: -- m</p>
+                        <p id="current-sunrise_mirror">🌅 Sunrise: --</p>
+                        <p id="current-sunset_mirror">🌇 Sunset: --</p>
+                    </div>
+                </section>
+            </div>
+            <section class="forecast">
+                <h2>Forecast</h2>
+                <div id="forecast-container2" class="forecast-container_mirrored">
+                </div>
+            </section>
+        </main>
+        <canvas id="canvas_mirror" width="400" height="200"></canvas>
         <footer>
             <h4>Data provided by <a href="https://openweathermap.org/">OpenWeatherMap</a></h4>
         </footer>
@@ -87,5 +121,7 @@
     <p id="message_text"></p>
 </div>
 <!-- Load all JS content -->
+<script src="assets/js/modules/theme.mjs" type="module"></script>
+<script src="assets/js/main.js" type="module"></script>
 </body>
 </html>
